@@ -1,0 +1,10 @@
+execute:
+  docker build -t lutweeter:latest .
+  docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
+
+build:
+  docker build -t lutweeter:latest .
+
+run:
+  docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
+

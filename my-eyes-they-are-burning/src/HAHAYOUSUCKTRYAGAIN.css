@@ -29,7 +29,7 @@
 
 
 .bg-repeat{
-    background-image: url('public/rickroll-roll.gif');
+    background-image: url('/rickroll-roll.gif');
     background-repeat: repeat;
     background-size: 50px 100px;
 }
