@@ -1,5 +1,5 @@
 .spinning-image {
-  animation: spin 4s linear infinite;
+  /* animation: spin s linear infinite; */
 }
 
 @keyframes spin {

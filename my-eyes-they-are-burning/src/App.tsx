@@ -1,7 +1,11 @@
-import './App.css'
-import Post from './post';
-import EndRacism from './EndRacism';
 import { useState } from 'react';
+
+import Post from './Post';
+import EndRacism from './EndRacism';
+import HAHAYOUSUCKTRYAGAIN from './HAHAYOUSUCTRYAGAIN';
+
+import './App.css'
+
 
 function App() {
 
@@ -68,13 +72,15 @@ function App() {
   }
 ]
   const [showModal, setShowModal] = useState(true);
+  const [isLockedOut, setIsLockedOut] = useState(false);
 
   return (
     <div style={{background: "red"}}>
+     {isLockedOut ? <HAHAYOUSUCKTRYAGAIN /> : null}
        <h1 style={{color: "yellow", fontFamily: 'Comic Sans MS'}}>THE BEST VERSION OF TWEETER/X</h1>
-       <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-       {showModal ? <EndRacism isOpen={showModal} onClose={setShowModal}></EndRacism> : <></>}
-       </div>
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+          {showModal ? <EndRacism onClose={setShowModal} onLOCKOUT={setIsLockedOut}></EndRacism> : <></>}
+        </div>
        {posts.map((post, i) => (
         <Post key={i} text={post.text} img={post.img}></Post>
        ))}

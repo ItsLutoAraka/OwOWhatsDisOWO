@@ -1,0 +1,35 @@
+.flash-and-spin {
+  animation: 
+    flash 2s infinite,
+    spin-zoom 1s linear infinite
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin-zoom {
+    0% { 
+        transform: rotate(0deg) scale(1); 
+    }
+    25% { 
+        transform: rotate(90deg) scale(4); 
+    }
+    50% { 
+        transform: rotate(180deg) scale(1); 
+    }
+    75% { 
+        transform: rotate(270deg) scale(4); 
+    }
+    100% { 
+        transform: rotate(360deg) scale(1); 
+    }
+}
+
+
+.bg-repeat{
+    background-image: url('public/rickroll-roll.gif');
+    background-repeat: repeat;
+    background-size: 50px 100px;
+}

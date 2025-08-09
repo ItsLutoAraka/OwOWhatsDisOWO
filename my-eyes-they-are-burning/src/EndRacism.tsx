@@ -1,15 +1,16 @@
 import { useState } from "react";
 
 type endRacismProps = {
-    isOpen: boolean;
     onClose: any;
+    onLOCKOUT: any;
 }
 
-function EndRacism({isOpen, onClose}: endRacismProps){
+function EndRacism({ onClose, onLOCKOUT }: endRacismProps){
     const disclaimer = "i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1 i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1";
-    // const disclaimer = "hi!";
+    // const disclaimer = "hiiii!";
     const [input, setInput] = useState('');
     const [position, setPosition] = useState(0);
+    const [happyLilAccidents, setHappyLilAccidents] = useState(0);
 
     const handleInputChange = (e: any) => {
         const newInput = e.target.value;
@@ -17,12 +18,20 @@ function EndRacism({isOpen, onClose}: endRacismProps){
         // Prevent typing beyond disclaimer length
         if (newInput.length > disclaimer.length) return;
         
+        for(let i = 0; i < 100; i++){
+            console.log('heh');
+        }
+
         // Check if user typed a new character or deleted
         if (newInput.length > input.length) {
             // New character typed
             const typedChar = newInput[newInput.length - 1];
             const expectedChar = disclaimer[newInput.length - 1];
             const isCorrect = typedChar === expectedChar;
+
+            if (!isCorrect) {
+                setHappyLilAccidents(happyLilAccidents + 1);
+            }
             
             // Add CSS rule for this character (nth-child is 1-indexed)
             const styleSheet = document.styleSheets[0];
@@ -59,9 +68,9 @@ function EndRacism({isOpen, onClose}: endRacismProps){
     }
 
     const handleClick = () => {
-        onClose(false);
+        happyLilAccidents >= 5 ? onLOCKOUT(true) : onClose(false);
     }
-
+  
     const disclaimerSpans = disclaimer.split('').map((char, index) => (
         <span key={index}>{char}</span>
     ));
