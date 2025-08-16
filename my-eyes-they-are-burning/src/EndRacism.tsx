@@ -126,11 +126,63 @@ function EndRacism({ onClose, onLOCKOUT }: endRacismProps) {
         />
 
         <div style={{
-          color: 'white',
-          fontFamily: 'Comic Sans MS',
-          marginTop: '10px'
-        }}>
-          Progress: {position} / {disclaimer.length}
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                zIndex: 1000,
+                        }}>
+            <div style={{ 
+                        background: 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)',
+                        width: '70%',
+                        height: '600px',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        position: 'absolute',
+                        zIndex:'100000',
+                        padding: '20px',
+                        boxSizing: 'border-box'
+                        }}>
+                <p style={{
+                    color: "white", 
+                    fontFamily: 'Comic Sans MS',   
+                    textShadow: '2px 2px 0px black',
+                    fontSize:'40px',
+                    userSelect: 'none',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
+                    margin: 0,
+                    marginBottom: '20px'
+                }}
+                className="typing-text">
+                    {disclaimerSpans}
+                </p>
+                
+                <input 
+                    value={input}  // Added this!
+                    onChange={handleInputChange}
+                    style={{
+                        width: '100%',
+                        padding: '10px',
+                        fontSize: '16px',
+                        fontFamily: 'Comic Sans MS',
+                        boxSizing: 'border-box'
+                    }}
+                    // onPaste={(e) => e.preventDefault()}
+                />
+                
+                <div style={{
+                    color: 'white',
+                    fontFamily: 'Comic Sans MS',
+                    marginTop: '10px'
+                }}>
+                    Progress: {position} / {disclaimer.length}
+                </div>
+                {position === disclaimer.length && input === disclaimer ? <button onClick={handleClick}>I AM NOT RACIST</button> : <></>}
+            </div>
         </div>
         {position === disclaimer.length && input === disclaimer ? <button onClick={handleClick}>I AM NOT RACIST</button> : <></>}
       </div>
