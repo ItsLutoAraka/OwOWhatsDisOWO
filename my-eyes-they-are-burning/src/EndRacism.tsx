@@ -122,7 +122,7 @@ function EndRacism({ onClose, onLOCKOUT }: endRacismProps){
                         fontFamily: 'Comic Sans MS',
                         boxSizing: 'border-box'
                     }}
-                    onPaste={(e) => e.preventDefault()}
+                    // onPaste={(e) => e.preventDefault()}
                 />
                 
                 <div style={{

@@ -1,5 +1,6 @@
 import './HAHAYOUSUCKTRYAGAIN.css'
 import DAWHEELOFD00M from './DAWHEELOFD00M';
+import { useState } from 'react';
 
 function HAHAYOUSUCKTRYAGAIN(){
     return (
@@ -22,7 +23,7 @@ function HAHAYOUSUCKTRYAGAIN(){
                             position: 'absolute',
                             background: 'orange',
                             height: '300px',
-                            width: '500px'
+                            width: '500px',
                             }}
                     // className='flash-and-spin'
                 />
