@@ -1,0 +1,41 @@
+services:
+  lutweeter:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    container_name: lutweeter
+    restart: unless-stopped
+    networks:
+      - proxy-01
+    logging:
+      driver: "none"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.lutweeter.entrypoints=http"
+      - "traefik.http.routers.lutweeter.rule=Host(`lutweeter.vtu.beer`)"
+      # - "traefik.http.middlewares.lutweeter-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
+      - "traefik.http.middlewares.lutweeter-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.lutweeter.middlewares=lutweeter-https-redirect"
+      - "traefik.http.routers.lutweeter-secure.entrypoints=https"
+      - "traefik.http.routers.lutweeter-secure.rule=Host(`lutweeter.vtu.beer`)"
+      # - "traefik.http.routers.lutweeter-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.lutweeter-secure.tls=true"
+      - "traefik.http.routers.lutweeter-secure.tls.certresolver=porkbun"
+      - "traefik.http.routers.lutweeter-secure.tls.domains[0].main=lutweeter.vtu.beer"
+      - "traefik.http.routers.lutweeter-secure.tls.domains[0].sans=*.lutweeter.vtu.beer"
+      # - "traefik.http.routers.lutweeter-secure.service=api@internal"
+      - "traefik.http.routers.lutweeter-secure.service=lutweeter"
+      # - "traefik.http.services.lutweeter.loadbalancer.server.scheme=h2c"
+      - "traefik.http.services.lutweeter.loadbalancer.passHostHeader=true"
+      - "traefik.http.services.lutweeter.loadbalancer.server.port=80"
+      # - "traefik.http.middlewares.no-log.ipwhitelist.sourcerange=127.0.0.1/32"
+      - "traefik.http.middlewares.add-privacy-header.headers.customrequestheaders.X-Privacy=true"
+      - "traefik.http.routers.lutweeter.middlewares=add-privacy-header"
+      - "traefik.http.routers.lutweeter-secure.middlewares=add-privacy-header"
+
+      - "traefik.docker.network=proxy-01"
+      
+networks:
+  proxy-01:
+    external: true
+

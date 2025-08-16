@@ -7,8 +7,6 @@ server {
 
   # Default file to serve
   index index.html;
-  access_log off;
-  error_log stderr crit;
 
   # This block is essential for Single Page Applications (SPAs)
   location / {
@@ -23,3 +21,4 @@ server {
   # gzip on;
   # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
 }
+

@@ -8,3 +8,15 @@ build:
 run:
   docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
 
+up:
+  docker compose up -d
+
+down:
+  docker compose down
+  
+restart:
+  docker compose down
+  docker compose up -d
+
+logs:
+  docker compose logs -f
