@@ -3,7 +3,7 @@ execute:
   docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
 
 build:
-  docker build -t lutweeter:latest .
+  docker build -t lutweeter:latest --no-cache .
 
 run:
   docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
