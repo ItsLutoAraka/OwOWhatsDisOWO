@@ -32,9 +32,8 @@ export const useRandomWord = () => {
       }
 
       const queryString = params.toString();
-      const url = `https://random-word-api.herokuapp.com/word${
-        queryString ? `?${queryString}` : ""
-      }`;
+      const url = `https://random-word-api.herokuapp.com/word${queryString ? `?${queryString}` : ""
+        }`;
 
       const response = await fetch(url);
 
@@ -98,6 +97,7 @@ function LoginPage() {
     },
   };
 
+  // @ts-ignore
   const { word, loading, error, fetchRandomWord } = useRandomWord();
   const hasFetched = useRef(false);
 

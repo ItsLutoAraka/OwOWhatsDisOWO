@@ -1,0 +1,27 @@
+execute:
+  docker build -t lutweeter:latest .
+  docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
+
+build:
+  docker build -t lutweeter:latest --no-cache .
+
+run:
+  docker run --rm -p 8693:80 --name lutweeter lutweeter:latest
+
+up:
+  docker compose up -d
+
+down:
+  docker compose down
+  
+restart:
+  docker compose down
+  docker compose up -d
+
+clean-restart:
+  docker compose down
+  docker compose build --no-cache
+  docker compose up -d
+
+logs:
+  docker compose logs -f

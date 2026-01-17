@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./DAWHEELOFD00M.css";
 const SECOND = 1000;
-const audio = new Audio("public/airhorn.mp3");
+// @ts-ignore
+const audio = new Audio('/airhorn.mp3');
 
 function ULOSE() {
   return (
@@ -28,7 +29,7 @@ function ULOSE() {
         left: "50%",
         transform: "translate(-50%, -50%",
       }}
-      // className='flash-and-spin'
+    // className='flash-and-spin'
     />
   );
 }
@@ -41,6 +42,7 @@ function DAWHEELOFD00M() {
   const [startCountdown, setStartCountdown] = useState(false);
   const [countdown, setCountdown] = useState(20 * SECOND);
   const [totalRotation, setTotalRotation] = useState(0);
+  // @ts-ignore
   const [AREYAWINNINGSON, setAREYAWINNINGSON] = useState(false);
   const [showLoseMsg, setShowLoseMsg] = useState(false);
 
@@ -125,7 +127,6 @@ function DAWHEELOFD00M() {
   // useEffect(() => {
 
   // }, [showLoseMsg]);
-
   return (
     <>
       {cookieCount > 0 ? (
@@ -135,7 +136,8 @@ function DAWHEELOFD00M() {
       <div
         className={isSpinning ? "wheel spin-da-wheel" : "wheel"}
         onClick={isSpinning ? undefined : handleOnclick}
-        style={{ "--rotation": `${totalRotation}deg` }}
+        //@ts-ignore
+        style={{ '--rotation': `${totalRotation}deg` }}
       >
         <div>
           {countdown} {volume} {hornInterval}{" "}

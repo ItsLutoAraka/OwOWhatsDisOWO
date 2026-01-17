@@ -3,7 +3,7 @@ import "./Header.css";
 function Header() {
   return (
     <div className="header">
-      <img src="../public/nyan.gif"></img>
+      <img src="/nyan.gif"></img>
       <div
         style={{
           marginLeft: "auto",
@@ -16,11 +16,11 @@ function Header() {
       >
         <div className="button-container">
           <div className="button">TWEET</div>
-          <img src="../public/triangle.svg" className="triangle"></img>
+          <img src="/triangle.svg" className="triangle"></img>
         </div>
         <div className="button-container">
           <div className="button">SAVE ME</div>
-          <img src="../public/triangle.svg" className="triangle"></img>
+          <img src="/triangle.svg" className="triangle"></img>
         </div>
         <div className="button">LOGIN</div>
         <div style={{ paddingRight: "40px" }}></div>

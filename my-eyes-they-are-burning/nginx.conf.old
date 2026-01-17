@@ -1,0 +1,24 @@
+server {
+  # Listen on port 80 inside the container
+  listen 80;
+
+  # The root directory for the built React files
+  root /usr/share/nginx/html;
+
+  # Default file to serve
+  index index.html;
+
+  # This block is essential for Single Page Applications (SPAs)
+  location / {
+    # Try to serve the requested file ($uri), then a directory ($uri/),
+    # and if neither exists, fall back to serving /index.html.
+    # This allows React Router to handle all page routes.
+    try_files $uri $uri/ /index.html;
+  }
+
+  # Optional: You can add extra configurations here, for example,
+  # to handle gzipping assets to improve performance.
+  # gzip on;
+  # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+}
+

@@ -6,8 +6,8 @@ type endRacismProps = {
 };
 
 function EndRacism({ onClose, onLOCKOUT }: endRacismProps) {
-  // const disclaimer = "i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1 i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1";
-  const disclaimer = "hiiii!";
+  const disclaimer = "i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1 i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1i wIlL n0T b3 RaCIst oN LutWEEt3r!1!1!1";
+  // const disclaimer = "hiiii!";
   const [input, setInput] = useState("");
   const [position, setPosition] = useState(0);
   const [happyLilAccidents, setHappyLilAccidents] = useState(0);
@@ -38,9 +38,8 @@ function EndRacism({ onClose, onLOCKOUT }: endRacismProps) {
       const nthPosition = newInput.length; // Convert to 1-indexed
       const rule = `.typing-text span:nth-child(${nthPosition}) { 
                 color: ${isCorrect ? "blue" : "red"} !important; 
-                background-color: ${
-                  isCorrect ? "rgba(0,0,255,0.2)" : "rgba(255,0,0,0.2)"
-                } !important; 
+                background-color: ${isCorrect ? "rgba(0,0,255,0.2)" : "rgba(255,0,0,0.2)"
+        } !important; 
             }`;
 
       styleSheet.insertRule(rule, styleSheet.cssRules.length);
@@ -130,7 +129,7 @@ function EndRacism({ onClose, onLOCKOUT }: endRacismProps) {
             fontFamily: "Comic Sans MS",
             boxSizing: "border-box",
           }}
-          // onPaste={(e) => e.preventDefault()}
+        // onPaste={(e) => e.preventDefault()}
         />
 
         <div

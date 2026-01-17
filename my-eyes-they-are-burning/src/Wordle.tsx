@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Wordle.css";
 
 function Wordle() {
+  // @ts-ignore
   const word = "boobs";
   const [curCol, setCurCol] = useState(0);
   const [curRow, setCurRow] = useState(0);
